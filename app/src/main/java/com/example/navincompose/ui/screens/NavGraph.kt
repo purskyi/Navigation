@@ -20,11 +20,19 @@ fun SetupNavGraph(
             FirstScreen(navController)
         }
         composable(route = Screen.SecondScreen.route,
-            arguments = listOf(navArgument(name = ARGUMENT_KEY){ type = NavType.StringType })
+            arguments = listOf(
+                navArgument(name = ARGUMENT_KEY){
+                    type = NavType.StringType
+                },
+                 navArgument(name = ARGUMENT_KEY2){
+                type = NavType.StringType
+                 })
         ){
             backStackEntry ->
-            val id = backStackEntry.arguments?.getString("id") ?: "not read the argument"
-            SecondScreen(navController, id)
+            val id = backStackEntry.arguments?.getString(ARGUMENT_KEY) ?: "not read the argument"
+            val id2 = backStackEntry.arguments?.getString(ARGUMENT_KEY2) ?: "not read the argument"
+
+            SecondScreen(navController, Pair(id,id2))
         }
     }
 }
