@@ -16,13 +16,13 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun SecondScreen(navController: NavController){
+fun SecondScreen(navController: NavController, id: String){
 
     Box(modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center){
-        Text(text = "SECOND HOME",
+        Text(text = "SECOND HOME ${id}",
             fontWeight = FontWeight.Bold,
-            fontSize = 50.sp,
+            fontSize = 40.sp,
             modifier = Modifier
                 .background(MaterialTheme.colorScheme.onPrimary)
                 .clickable {
@@ -39,5 +39,5 @@ fun SecondScreen(navController: NavController){
 @Preview(showBackground = true)
 @Composable
 fun SecondScreenPreview(){
-    SecondScreen(rememberNavController())
+    SecondScreen(rememberNavController(), id = "5")
 }
