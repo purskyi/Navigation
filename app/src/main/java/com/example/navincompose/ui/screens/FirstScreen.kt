@@ -38,9 +38,7 @@ fun FirstScreen(navController: NavController){
                 modifier = Modifier
                     .padding(horizontal = 10.dp)
                     .clickable { navController.navigate(
-                        route = Screen.SecondScreen.passIdAndName(id = theMessage,
-                            name = theMessage.hashCode().toString()
-                        ))
+                        route = Screen.SecondScreen.passId(id = theMessage))
                     })
           TextField(value = theMessage,
               label = {Text(text = "enter the message")},
